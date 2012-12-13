@@ -3,16 +3,29 @@
 	<meta charset="utf-8">
 	<title>LODCulture</title>
 	<link href="jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.css" rel="stylesheet">
-        <link href="style.css" rel="stylesheet">    
+    <link href="style.css" rel="stylesheet">    
 	<script src="jquery-ui/js/jquery-1.8.3.js"></script>
 	<script src="jquery-ui/js/jquery-ui-1.9.2.custom.js"></script>
-        
         <script>
             $(function() {
                 $("#searchBtn")
                     .button()
-                    .click(function(event) {                        
-                    });
+                    .click(function(event) {                            
+                        var names = [];
+                        $('#test input:checked').each(function() {
+                            $.ajax({
+                              type: 'POST',
+                              url: "http://www12312uf.sakura.ne.jp/sparql",
+                              data: {"query": "SELECT * { ?s ?p ?o } limit 2"},
+                              success: function(data){
+                                  console.log(data);
+                              } ,
+                            });
+                            names.push(this.value);
+                            });
+                        console.log(names);
+                        //alert(names[0]);
+                      });
             });
         </script>
 </head>
@@ -22,10 +35,28 @@
         <div id ="main">
             <div id = "searchPanel">
                 <div id = "title">Fujisawa Holiday</div>
+                <div id = "test">
+                    <form>
+                        <input type="checkbox" name="gerne" value="ja_food">和食<br>
+                        <input type="checkbox" name="gerne" value="west_food">洋食<br>
+                        <input type="checkbox" name="gerne" value="china_food">中華料理<br>
+                        <input type="checkbox" name="gerne" value="italy_food">イタリア料理<br>
+                        <input type="checkbox" name="gerne" value="bar">飲酒屋<br>
+                        <input type="checkbox" name="gerne" value="yakiniku">焼き肉<br>
+                        <input type="checkbox" name="gerne" value="okonomiyaki">お好み焼き・もんじゃ・鉄板焼き<br>
+                        <input type="checkbox" name="gerne" value="cafe">カフェ・スイーツ<br>
+                    </form>
+                </div>
                 <button id = "searchBtn">Search</button>
             </div>
             <div id = "resultPanel">
-                
+            <b>Result:</b><div id = "result"></div>
+            <b> 名前</b><br>
+            <b>写真</b><img src=""><br>
+            <b>予算</b><br>
+            <b>軽度</b><br>
+            <b>緯度</b><br>
+            <b>ジャンル</b><br>
             </div>
         </div>
     </div>
