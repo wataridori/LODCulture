@@ -1,0 +1,41 @@
+#container {
+	width: 100%;
+}
+
+#main {
+	margin: auto;
+	width: 1000px;
+	min-height: 500px;
+	border: solid 2px rgb(0,50,100);
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+#searchPanel {
+	float: left;	
+	width : 30%;
+	height: 95%;
+	border-right: solid 2px rgb(0,50,150);
+	border-radius: 5px;
+}
+
+#resultPanel {
+	float : left;
+	width : 69%;
+	height: 95%;		
+}
+#title {
+	padding: 20px 0px;
+	font-size: 1.5em;
+	font : bold;
+	text-align: center;
+	width : 100%;
+	border-bottom: solid 2px rgb(0,50,150);
+	border-radius: 5px;
+}
+
+#searchBtn {	
+	position: fixed;
+	bottom: 40px;
+	left : 25%;
+}
