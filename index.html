@@ -16,7 +16,7 @@
                             $.ajax({
                               type: 'POST',
                               url: "http://www12312uf.sakura.ne.jp/sparql",
-                              data: {"query": "SELECT * { ?s ?p ?o } limit 2"},
+                              data: {"query": "SELECT * { ?s ?p ?o } limit 100"},
                               success: function(data){
                                   console.log(data);
                               } ,
