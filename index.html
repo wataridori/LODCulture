@@ -8,6 +8,8 @@
         <script src="jquery-ui/js/jquery-ui-1.9.2.custom.js"></script>
         <script src="js/sparqlGenreSearch.js"></script>
         <script src="js/fillSearchResult.js"></script>
+        <script src="js/calculateDuration.js"></script>
+        <script src="js/coordinatesToMap.js"></script>
         <script>
             $(function() {
                 $("#searchBtn")
@@ -19,13 +21,11 @@
                         });
 
                         if (!names.length) {
-                            alert('no selected genre!');
+                            alert('no selected genres!');
                             return;
                         }
 
                         sparqlGenreSearch(names, fillSearchResult);
-
-                        console.log(names);
                     });
             });
         </script>
