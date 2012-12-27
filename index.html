@@ -13,22 +13,38 @@
                     .click(function(event) {                            
                         var names = [];
                         $('#test input:checked').each(function() {
-                            $.ajax({
-                                url: "http://data.tom.sfc.keio.ac.jp/sparql",
-                                data: {
-                                    query: "SELECT * { ?s ?p ?o } limit 100"
-                                },
-                                dataType: 'jsonp',
-                                jsonp: 'callback',
-                                success: function(data){
-                                    console.log(data);
-                                }
-                            });
                             names.push(this.value);
-                            });
+                        });
+
+
+                        if (!names.length) {
+                            alert('no selected genre!');
+                            return;
+                        }
+
+                        var querytext = [
+                            'SELECT ?name ?long ?lat {',
+                            '  ?s <http://data.tom.sfc.keio.ac.jp/property/gourmet_genre> \"' + names[0]+ '\" .',
+                            '  ?s <http://www.w3.org/2000/01/rdf-schema#label> ?name .',
+                            '  ?s <http://www.w3.org/2003/01/geo/wgs84_pos#long> ?long .',
+                            '  ?s <http://www.w3.org/2003/01/geo/wgs84_pos#lat> ?lat .',
+                            '} limit 20'
+                        ].join('');
+
+                        $.ajax({
+                            url: "http://data.tom.sfc.keio.ac.jp/sparql",
+                            data: {
+                                query: querytext
+                            },
+                            dataType: 'jsonp',
+                            jsonp: 'callback',
+                            success: function(data){
+                                console.log(data);
+                            }
+                        });
+
                         console.log(names);
-                        //alert(names[0]);
-                      });
+                    });
             });
         </script>
 </head>
@@ -40,14 +56,14 @@
                 <div id = "title">Fujisawa Holiday</div>
                 <div id = "test">
                     <form>
-                        <input type="checkbox" name="gerne" value="ja_food">和食<br>
-                        <input type="checkbox" name="gerne" value="west_food">洋食<br>
-                        <input type="checkbox" name="gerne" value="china_food">中華料理<br>
-                        <input type="checkbox" name="gerne" value="italy_food">イタリア料理<br>
-                        <input type="checkbox" name="gerne" value="bar">飲酒屋<br>
-                        <input type="checkbox" name="gerne" value="yakiniku">焼き肉<br>
-                        <input type="checkbox" name="gerne" value="okonomiyaki">お好み焼き・もんじゃ・鉄板焼き<br>
-                        <input type="checkbox" name="gerne" value="cafe">カフェ・スイーツ<br>
+                        <input type="checkbox" name="gerne" value="和食">和食<br>
+                        <input type="checkbox" name="gerne" value="洋食">洋食<br>
+                        <input type="checkbox" name="gerne" value="ラーメン">ラーメン<br>
+                        <input type="checkbox" name="gerne" value="中華">中華料理<br>
+                        <input type="checkbox" name="gerne" value="イタリアン">イタリア料理<br>
+                        <input type="checkbox" name="gerne" value="居酒屋">飲酒屋<br>
+                        <input type="checkbox" name="gerne" value="バー">バー<br>
+                        <input type="checkbox" name="gerne" value="カフェ・スイーツ">カフェ・スイーツ<br>
                     </form>
                 </div>
                 <button id = "searchBtn">Search</button>
