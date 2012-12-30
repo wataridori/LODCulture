@@ -42,8 +42,8 @@ var pickLocationParams = function (params) {
 
 	params.forEach(function (param) {
 		locationParams.push({
-			lat: param.lat,
-			lng: param.lng
+			lat: param["lat"],
+			lng: param["long"]
 		});
 	});
 
