@@ -2,14 +2,13 @@ var calculateDuration = function (locations) {
 	var service = new google.maps.DistanceMatrixService();
 	var results = [];
 	var origins = [];
-	var destinations = [];
-	var isDriving = true;
+	var destinations = [];	
 	
 	for (var i =0; i<locations.length-1; i++) {		
 		origins[i] = new google.maps.LatLng(locations[i].lat.value,locations[i].lng.value);		
 		destinations[i] = new google.maps.LatLng(locations[i+1].lat.value,locations[i].lng.value);
 		getDistanceAndTime(origins[i],destinations[i],google.maps.TravelMode.DRIVING);
-		getDistanceAndTime(origins[i],destinations[i],google.maps.TravelMode.WALKING);
+		//getDistanceAndTime(origins[i],destinations[i],google.maps.TravelMode.WALKING);
 	}							
 	
 	function getDistanceAndTime(ori,des, travelMode) {
@@ -28,15 +27,8 @@ var calculateDuration = function (locations) {
 					var element = result[j];					
 					distance = element.distance.text;
 					duration = element.duration.text;
-					results.push({distance:distance,duration:duration});
-					if (isDriving) {						
-						console.log(distance,duration, "Driving");
-						isDriving = false;
-					}
-					else {
-						console.log(distance,duration, "Walking");
-						isDriving = true;
-					}
+					results.push({distance:distance,duration:duration,mode:travelMode});					
+					console.log(distance,duration,travelMode);
 				}									
 			}  	  
 		}	
