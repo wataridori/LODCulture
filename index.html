@@ -10,7 +10,11 @@
         <script src="js/fillSearchResult.js"></script>
         <script src="js/calculateDuration.js"></script>
         <script src="js/coordinatesToMap.js"></script>	
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            google.load("visualization", "1", {packages:["map"]});
+        </script>
         <script>
             $(function() {
                 $("#searchBtn")
@@ -22,7 +26,7 @@
                         });
 
                         if (!names.length) {
-                            alert('no selected genres!');
+                            alert('no genre selected !');
                             return;
                         }
 
@@ -33,35 +37,42 @@
     </head>
 
 <body>
+    
     <div id = "container">
         <div id ="main">
-            <div id = "searchPanel">
-                <div id = "title">Fujisawa Holiday</div>
+            <article>
+            <div class = "pre"id = "searchPanel">
+                <div class = "title">FUJISAWA HOLLIDAY</div>
                 <div id = "test">
-                    <form>
-                        <input type="checkbox" name="gerne" value="和食">和食<br>
-                        <input type="checkbox" name="gerne" value="洋食">洋食<br>
-                        <input type="checkbox" name="gerne" value="ラーメン">ラーメン<br>
-                        <input type="checkbox" name="gerne" value="中華">中華料理<br>
-                        <input type="checkbox" name="gerne" value="イタリアン">イタリア料理<br>
-                        <input type="checkbox" name="gerne" value="居酒屋">飲酒屋<br>
-                        <input type="checkbox" name="gerne" value="バー">バー<br>
-                        <input type="checkbox" name="gerne" value="カフェ・スイーツ">カフェ・スイーツ<br>
+                        <ul>
+                        <li class = "food_gerne"><input type="checkbox" name="gerne" value="和食">和食</li>
+                        <li class = "food_gerne"><input type="checkbox" name="gerne" value="洋食">洋食</li>
+                        <li class = "food_gerne"><input type="checkbox" name="gerne" value="ラーメン">ラーメン</li>
+                        <li class = "food_gerne"><input type="checkbox" name="gerne" value="中華">中華料理</li>
+                        <br>
+                        <li class = "food_gerne"><input type="checkbox" name="gerne" value="イタリアン">イタリア料理</li>
+                        <li class = "food_gerne"><input type="checkbox" name="gerne" value="居酒屋">飲酒屋</li>
+                        <li class = "food_gerne"><input type="checkbox" name="gerne" value="バー">バー</li>
+                        <li class = "food_gerne"><input type="checkbox" name="gerne" value="カフェ・スイーツ">カフェ・スイーツ</li>
+                        <br>
+                        </ul>
                     </form>
                     </div>
-                    <button id = "searchBtn">Search</button>
+                    <div id = "submit">
+                        <button id = "searchBtn">Search</button>
+                    </div>
                 </div>
-                <div id = "resultPanel">
-                    <b>Result:</b><div id = "result"></div>
-                    <b>名前</b><br>
-                    <b>写真</b><img src=""><br>
-                    <b>予算</b><br>
-                    <b>軽度</b><br>
-                    <b>緯度</b><br>
-                    <b>ジャンル</b><br>
+            </article>    
+            <article>
+                <div class = "pre" >
+                    <div class = "title"><b >RESULTS</b></div>
+                    <div id = "resultPanel">
+                    </div>
                 </div>
+            </article>    
             </div>
         </div>
+        
     </body>
 
 </html>

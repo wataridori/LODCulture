@@ -5,12 +5,8 @@ var fillSearchResult = function (results) {
 	$element.empty();
 
 	var $ul = $('<ul />');
-	choicedResults.forEach(function (result) {
-		var label = result.name.value;
-		$ul.append($('<li />').html(label));
-	});
 	$element.append($ul);
-
+	
 	coordinatesToMap(choicedResults);
 	calculateDuration(pickLocationParams(choicedResults));
 };

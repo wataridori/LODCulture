@@ -1,41 +1,169 @@
-#container {
-	width: 100%;
+html { font-size: 100%; }
+
+html, body { 
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color:  rgba(250,0,0,1);
+  }
+
+body {
+  background: #E79833 url(image/t-3.png) 0 0 repeat;
+  font-size: 62.5%;
+  text-align: center;
+  margin:0;
+  padding:0;
 }
 
-#main {
-	margin: auto;
-	width: 1000px;
-	min-height: 500px;
-	border: solid 2px rgb(0,50,100);
+body:before { /* top shadow */
+  content: "";
+  position: fixed;
+  top: -10px;
+  left: -10px;
+  width: 110%;
+  height: 10px;
+
+  -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+     -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+      -ms-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+       -o-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+      box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+
+  z-index: 100;
+  }
+
+::-moz-selection { color: #f1f2f3; background: #ff7d2b; }
+     ::selection { color: #f1f2f3; background: #ff7d2b; }
+
+article { 
+  width: 70em;
+  margin: 30px auto;
+  text-align: left;
+  font-family: sans-serif;
+  font-size: 1.32em;
+  line-height: 1.45;
+  }
+
+.pre {
+  background-color: rgba(0,0,0,0.3);
+  font-size:150%;
+  margin: 30px auto;
+  padding: 15px;
+  color: #f1f2f3;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+       -o-border-radius: 10px;
+      border-radius: 10px;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.25), 0 1px 1px rgba(255,255,255,0.35);
+     -moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.25), 0 1px 1px rgba(255,255,255,0.35);
+      -ms-box-shadow: inset 0 1px 3px rgba(0,0,0,0.25), 0 1px 1px rgba(255,255,255,0.35);
+       -o-box-shadow: inset 0 1px 3px rgba(0,0,0,0.25), 0 1px 1px rgba(255,255,255,0.35);
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.25), 0 1px 1px rgba(255,255,255,0.35);
+  font-family: Monaco, monospace, sans-serif;}
+
+input[type="text"] { 
+   border:none; 
+   -webkit-border-radius:5px; 
+   -moz-border-radius:5px; 
+   border-radius:5px; 
+   -webkit-box-shadow:0 0 5px #666 inset; 
+   -moz-box-shadow:0 0 5px #666 inset; 
+   box-shadow:0 0 5px #666 inset; 
+   height:40px; 
+   line-height:20px; 
+   width:80%; 
+   text-align:center;
+   /*padding-left:1%;
+   padding-right:1%;*/
+   font-size: 16px; 
+} 
+input[type="text"]:focus { outline:none; }
+
+#searchform {
+  text-align:center;
+}
+#searchform p{
+  font-size: 32px;
+}
+
+.submitbutt {
+  -moz-box-shadow:inset 0px 1px 0px 0px #fce2c1;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #fce2c1;
+  box-shadow:inset 0px 1px 0px 0px #fce2c1;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffc477), color-stop(1, #fb9e25) );
+  background:-moz-linear-gradient( center top, #ffc477 5%, #fb9e25 100% );
+  background-color:#ffc477;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:5px;
+  border:1px solid #eeb44f;
+  display:inline-block;
+  color:#ffffff;
+  font-family:arial;
+  font-size:20px;
+  font-weight:bold;
+  padding:7px 10px;
+  text-decoration:none;
+  text-shadow:1px 1px 0px #cc9f52;
+}.submitbutt:hover {
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477) );
+  background:-moz-linear-gradient( center top, #fb9e25 5%, #ffc477 100% );
+  background-color:#fb9e25;
+}.submitbutt:active {
+  position:relative;
+  top:1px;
+}
+
+.title {
+  text-align:center;
+  
+  font-size:24px;
+}
+
+a, a:visited {
+  text-decoration:none;
+  outline:none;
+  
+}
+
+#test {
+	display:block;
+}
+
+.food_gerne {
+	float:left;
+	width: 25%;
+}
+
+#submit {
+	text-align:center;
+}
+
+#map_div{
+	text-align:center;
+}
+
+.center {
+	text-align:center;
+}
+
+.resultPanel {
+	text-align:center;
+}
+
+ul {
+	padding: 0;
+}
+
+.result {
+	text-align:center;
+	border: solid 1px;
 	border-radius: 10px;
-	overflow: hidden;
+	margin: 10px;
 }
-
-#searchPanel {
-	float: left;	
-	width : 30%;
-	height: 95%;
-	border-right: solid 2px rgb(0,50,150);
-	border-radius: 5px;
-}
-
-#resultPanel {
-	float : left;
-	width : 69%;
-	height: 95%;		
-}
-#title {
-	padding: 20px 0px;
-	font-size: 1.5em;
-	font : bold;
-	text-align: center;
-	width : 100%;
-	border-bottom: solid 2px rgb(0,50,150);
-	border-radius: 5px;
-}
-
-#searchBtn {	
-	position: fixed;
-	bottom: 50px;
-	margin-left: 10px;
+.map {
+	width: 80%; 
+	margin: 10%;
+	height: 400px;
 }
