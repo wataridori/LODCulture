@@ -43,6 +43,28 @@ article {
   line-height: 1.45;
   }
 
+#search_column { 
+  width: 25%;
+  margin-left: 5%;
+  margin-right: 2.5%;
+  float:left; 
+  text-align: left;
+  font-family: sans-serif;
+  font-size: 1.32em;
+  line-height: 1.45;
+  }
+
+#result_column { 
+  width: 60%;
+  float:left;
+  margin-right:5%;
+  margin-left: 2.5%;
+  text-align: left;
+  font-family: sans-serif;
+  font-size: 1.32em;
+  line-height: 1.45;
+  }
+
 .pre {
   background-color: rgba(0,0,0,0.3);
   font-size:150%;
@@ -117,7 +139,7 @@ input[type="text"]:focus { outline:none; }
 
 .title {
   text-align:center;
-  
+
   font-size:24px;
 }
 
@@ -133,7 +155,7 @@ a, a:visited {
 
 .food_gerne {
 	float:left;
-	width: 25%;
+	width: 50%;
 }
 
 #submit {
