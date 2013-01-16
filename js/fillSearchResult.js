@@ -3,9 +3,9 @@ var fillSearchResult = function (results) {
 
 	var $element = $('#resultPanel');
 	$element.empty();
-
-	var $ul = $('<ul />');
-	$element.append($ul);
+	
+	/*var $ul = $('<ul />');
+	$element.append($ul);*/
 	
 	coordinatesToMap(choicedResults);
 	calculateDuration(pickLocationParams(choicedResults));
