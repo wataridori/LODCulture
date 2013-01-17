@@ -7,11 +7,11 @@ var calculateDuration = function (locations) {
 	for (var i =0; i<locations.length-1; i++) {		
 		origins[i] = new google.maps.LatLng(locations[i].lat.value,locations[i].lng.value);		
 		destinations[i] = new google.maps.LatLng(locations[i+1].lat.value,locations[i].lng.value);
-		getDistanceAndTime(origins[i],destinations[i],google.maps.TravelMode.DRIVING);
+		getDistanceAndTime(origins[i],destinations[i],google.maps.TravelMode.DRIVING, i);
 		//getDistanceAndTime(origins[i],destinations[i],google.maps.TravelMode.WALKING);
 	}							
 	
-	function getDistanceAndTime(ori,des, travelMode) {
+	function getDistanceAndTime(ori,des, travelMode, index) {
 		service.getDistanceMatrix({
 			origins: [ori],
 			destinations: [des],
@@ -29,6 +29,7 @@ var calculateDuration = function (locations) {
 					duration = element.duration.text;
 					results.push({distance:distance,duration:duration,mode:travelMode});					
 					console.log(distance,duration,travelMode);
+					$('#result' + index).after('<div>' + distance + ', ' + duration + ', ' + travelMode + '</div>');
 				}									
 			}  	  
 		}	

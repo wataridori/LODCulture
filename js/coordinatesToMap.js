@@ -15,6 +15,6 @@ var coordinatesToMap = function (places) {
    	$("#result"+i).append("<div class = 'map' id = 'map"+i+"'></div>");
    
    	var map = new google.visualization.Map(document.getElementById("map"+i));
-    map.draw(data, {showTip: true, useMapTypeControl: true});
+    map.draw(data, {showTip: true, useMapTypeControl: true, mapType: 'normal', zoomLevel: 13});
 	}
 };
