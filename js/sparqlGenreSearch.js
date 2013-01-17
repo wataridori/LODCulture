@@ -7,12 +7,14 @@ var sparqlGenreSearch = function (genreNames, callback) {
 
 	// sparqlクエリを作成
 	var querytext = [
-		'SELECT ?name ?long ?lat {',
+		'SELECT ?name ?long ?lat ?lunch ?dinner {',
 		'  ?s <http://data.tom.sfc.keio.ac.jp/property/gourmet_genre> ?genre .',
 		'  filter(' + conditions.join('||') + ')',
 		'  ?s <http://www.w3.org/2000/01/rdf-schema#label> ?name .',
 		'  ?s <http://www.w3.org/2003/01/geo/wgs84_pos#long> ?long .',
 		'  ?s <http://www.w3.org/2003/01/geo/wgs84_pos#lat> ?lat .',
+		'  ?s <http://data.tom.sfc.keio.ac.jp/property/gourmet_lunch_budget> ?lunch .',
+		'  ?s <http://data.tom.sfc.keio.ac.jp/property/gourmet_dinner_budget> ?dinner .',
 		'} limit 20'
 	].join('');
 

@@ -10,8 +10,7 @@ var coordinatesToMap = function (places) {
           [parseFloat(places[i].lat.value), parseFloat(places[i].long.value), places[i].name.value],
         ]);
     var j=i+1;    
-   	$('#resultPanel').append("<div class = 'result' id = 'result"+i+"'></div>");
-   	$("#result"+i).append("<p>"+j+". "+places[i].name.value+"</p>");
+
    	$("#result"+i).append("<div class = 'map' id = 'map"+i+"'></div>");
    
    	var map = new google.visualization.Map(document.getElementById("map"+i));

@@ -1,12 +1,29 @@
 var fillSearchResult = function (results) {
 	var choicedResults = randomChoose(results, 3);
 
-	var $element = $('#resultPanel');
-	$element.empty();
+	var $resultPanel = $('#resultPanel');
+	$resultPanel.empty();
 	
 	/*var $ul = $('<ul />');
-	$element.append($ul);*/
+	$resultPanel.append($ul);*/
 	
+	var $result;
+	for (var i = 0; i < choicedResults.length; i++) {
+		$result = $([
+			'<div class="result" id="result' + i + '">',
+			'  <p>',
+			'    <b>' + (i + 1) + '. ' + choicedResults[i].name.value+ '</b>',
+			'  </p>',
+			'  <dl>',
+			'    <dt>lunch</dt>',
+			'    <dd>' + choicedResults[i].lunch.value + '円</dd>',
+			'    <dt>dinner</dt>',
+			'    <dd>' + choicedResults[i].dinner.value + '円</dd>',
+			'  </dl>',
+			'</div>'
+		].join('\n'));
+   		$resultPanel.append($result);
+	}
 	coordinatesToMap(choicedResults);
 	calculateDuration(pickLocationParams(choicedResults));
 };
@@ -38,8 +55,8 @@ var pickLocationParams = function (params) {
 
 	params.forEach(function (param) {
 		locationParams.push({
-			lat: param["lat"],
-			lng: param["long"]
+			lat: param['lat'],
+			lng: param['long']
 		});
 	});
 
