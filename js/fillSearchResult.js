@@ -43,7 +43,7 @@ var fillSearchResult = function (results) {
                     for (i=0; i<choiced_distance.length;i++){
                         choiced_results.push(results[choiced_distance[i].index]);
                     }
-                    $("#resultPanel").append("<br>3 Nearest Restaurent From Current Location: <br>");
+                    $("#resultPanel").append("<br>3 Nearest Restaurant From Current Location: <br>");
                     var $result;
                     for (var i = 0; i < choiced_results.length; i++) {
                         $result = $([
