@@ -12,7 +12,7 @@
           [37.6153, -122.3900, 'Airport'],
           [37.4422, -122.1731, 'Shopping']
         ]);
-
+        console.log(data);
         var map = new google.visualization.Map(document.getElementById('map_div'));
         map.draw(data, {showTip: true});
       }

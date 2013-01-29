@@ -6,9 +6,9 @@ var calculateDuration = function (locations) {
 	
 	for (var i =0; i<locations.length-1; i++) {		
 		origins[i] = new google.maps.LatLng(locations[i].lat.value,locations[i].lng.value);		
-		destinations[i] = new google.maps.LatLng(locations[i+1].lat.value,locations[i].lng.value);
+		destinations[i] = new google.maps.LatLng(locations[i+1].lat.value,locations[i+1].lng.value);
 		getDistanceAndTime(origins[i],destinations[i],google.maps.TravelMode.DRIVING, i);
-		//getDistanceAndTime(origins[i],destinations[i],google.maps.TravelMode.WALKING);
+		/*getDistanceAndTime(origins[i],destinations[i],google.maps.TravelMode.WALKING, i);*/
 	}							
 	
 	function getDistanceAndTime(ori,des, travelMode, index) {
@@ -23,10 +23,16 @@ var calculateDuration = function (locations) {
 		function callback(response, status) {
 			if (status == google.maps.DistanceMatrixStatus.OK) {				
 				var result = response.rows[0].elements;				
+
 				for (var j = 0; j < result.length; j++) {
 					var element = result[j];					
-					distance = element.distance.text;
-					duration = element.duration.text;
+					if (element.status == "OK"){
+                            distance = element.distance.text;
+                            duration = element.duration.text;
+                        } else {
+                            distance = "(unknow)";
+                            duration = "(unknow)";
+                        }
 					results.push({distance:distance,duration:duration,mode:travelMode});					
 					console.log(distance,duration,travelMode);
 					$('#result' + index).after('<div>' + distance + ', ' + duration + ', ' + travelMode + '</div>');
