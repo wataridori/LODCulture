@@ -1,6 +1,4 @@
 var fillSearchResult = function (results) {
-	var choicedResults = randomChoose(results, 3);
-    
 	var $resultPanel = $('#resultPanel');
 	$resultPanel.empty();
     
@@ -49,7 +47,7 @@ var fillSearchResult = function (results) {
                         $result = $([
                             '<div class="result" id="result' + i + '">',
                             '  <p>',
-                            '    <b>' + (i + 1) + '. ' + choicedResults[i].name.value+ '</b>',
+                            '    <b>' + (i + 1) + '. ' + choiced_results[i].name.value+ '</b>',
                             '  </p>',
                             '  <dl>',
                             '   <dt> Address: </dt>',
@@ -70,6 +68,7 @@ var fillSearchResult = function (results) {
                         $resultPanel.append($result);
                     }
                     coordinatesToMap(choiced_results);
+                    
                 }  	  
             }
         }, function(postion){
@@ -80,7 +79,7 @@ var fillSearchResult = function (results) {
     }
     
 	
-	calculateDuration(pickLocationParams(choicedResults));
+	
 };
 
 function coordinatesToMap(places) {
